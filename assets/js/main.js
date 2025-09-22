@@ -16,7 +16,7 @@
     if(path==='index.html' && (target===''||target==='#')){a.classList.add('active');}
   });
 
-  // Simple working contact form - sends to WhatsApp and shows success
+  // Simple working contact form - sends to WhatsApp
   const form = document.querySelector('form.contact');
   if(form){
     form.addEventListener('submit', (e) => {
