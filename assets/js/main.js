@@ -36,7 +36,7 @@
         const formData = new FormData(form);
         
         // Send to FormSubmit (professional email service)
-        const response = await fetch('https://formsubmit.co/erhardikmech1012@gmail.com', {
+        const response = await fetch('https://formsubmit.co/hardikharmani@harmaniglobaltrade.com', {
           method: 'POST',
           body: formData
         });

@@ -2,7 +2,7 @@
 
 ## 🎯 What This Does
 
-✅ **Professional Emails** - All inquiries sent directly to `erhardikmech1012@gmail.com`  
+✅ **Professional Emails** - All inquiries sent directly to `hardikharmani@harmaniglobaltrade.com`
 ✅ **No Mail App Opens** - Seamless form submission experience  
 ✅ **Formatted Emails** - Clean, professional email format  
 ✅ **No Setup Required** - Works immediately after first submission  
@@ -45,10 +45,12 @@ Submitted from: harmaniglobaltrade.com
 2. **Click activation link** → Service becomes active
 3. **All future submissions** → Work automatically
 
+**📝 Note**: Since you changed from Gmail to your professional domain email (`hardikharmani@harmaniglobaltrade.com`), FormSubmit will need to be activated again for the new email address.
+
 ### Steps:
 1. **Wait 2-3 minutes** for GitHub Pages to update
 2. **Test the form** at https://harmaniglobaltrade.com/contact.html
-3. **Check your email** (`erhardikmech1012@gmail.com`)
+3. **Check your email** (`hardikharmani@harmaniglobaltrade.com`)
 4. **Click activation link** in the FormSubmit email
 5. **Done!** All future inquiries will arrive automatically
 
