@@ -16,29 +16,11 @@
     if(path==='index.html' && (target===''||target==='#')){a.classList.add('active');}
   });
 
-  // EmailJS Configuration - Replace these with your actual EmailJS keys
-  const EMAILJS_CONFIG = {
-    PUBLIC_KEY: 'YOUR_PUBLIC_KEY_HERE',    // Replace with your EmailJS public key
-    SERVICE_ID: 'YOUR_SERVICE_ID_HERE',    // Replace with your EmailJS service ID
-    TEMPLATE_ID: 'YOUR_TEMPLATE_ID_HERE'   // Replace with your EmailJS template ID
-  };
-
-  // Initialize EmailJS
-  if (typeof emailjs !== 'undefined' && EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY_HERE') {
-    emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
-  }
-
-  // Contact form submission with EmailJS
+  // Contact form submission with GetForm (works immediately)
   const form = document.querySelector('form.contact');
   if(form){
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      
-      // Check if EmailJS is configured
-      if (EMAILJS_CONFIG.PUBLIC_KEY === 'YOUR_PUBLIC_KEY_HERE') {
-        showMessage('error', 'EmailJS is not configured yet. Please complete the setup process.');
-        return;
-      }
       
       // Show loading state
       const submitBtn = document.getElementById('submit-btn');
@@ -52,27 +34,24 @@
       try {
         // Get form data
         const formData = new FormData(form);
-        const templateParams = {
-          from_name: formData.get('from_name') || '',
-          reply_to: formData.get('reply_to') || '',
-          phone: formData.get('phone') || '',
-          service: formData.get('service') || '',
-          message: formData.get('message') || ''
-        };
         
-        // Send email using EmailJS
-        const response = await emailjs.send(
-          EMAILJS_CONFIG.SERVICE_ID,
-          EMAILJS_CONFIG.TEMPLATE_ID,
-          templateParams
-        );
+        // Send to GetForm
+        const response = await fetch('https://getform.io/f/aejjekga', {
+          method: 'POST',
+          body: formData
+        });
         
-        // Success
-        showMessage('success');
-        form.reset();
+        if (response.ok) {
+          // Success
+          showMessage('success');
+          form.reset();
+        } else {
+          // Error
+          throw new Error('Form submission failed');
+        }
         
       } catch (error) {
-        console.error('EmailJS Error:', error);
+        console.error('Form Error:', error);
         showMessage('error');
       } finally {
         // Reset button state
