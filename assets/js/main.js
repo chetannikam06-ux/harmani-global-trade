@@ -18,13 +18,13 @@
 
   // EmailJS Configuration - Replace these with your actual EmailJS keys
   const EMAILJS_CONFIG = {
-    PUBLIC_KEY: 'YOUR_PUBLIC_KEY_HERE',    // Replace with your EmailJS public key
-    SERVICE_ID: 'YOUR_SERVICE_ID_HERE',    // Replace with your EmailJS service ID
-    TEMPLATE_ID: 'YOUR_TEMPLATE_ID_HERE'   // Replace with your EmailJS template ID
+    PUBLIC_KEY: '1MRlmthlEf3v7uNXB',    // Replace with your EmailJS public key
+    SERVICE_ID: 'service_pgy5hvp',    // Replace with your EmailJS service ID
+    TEMPLATE_ID: 'template_3dx8oam'   // Replace with your EmailJS template ID
   };
 
   // Initialize EmailJS
-  if (typeof emailjs !== 'undefined' && EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY_HERE') {
+  if (typeof emailjs !== 'undefined' && EMAILJS_CONFIG.PUBLIC_KEY !== '1MRlmthlEf3v7uNXB') {
     emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
   }
 
@@ -35,7 +35,7 @@
       e.preventDefault();
       
       // Check if EmailJS is configured
-      if (EMAILJS_CONFIG.PUBLIC_KEY === 'YOUR_PUBLIC_KEY_HERE') {
+      if (EMAILJS_CONFIG.PUBLIC_KEY === '1MRlmthlEf3v7uNXB') {
         showMessage('error', 'EmailJS is not configured yet. Please complete the setup process.');
         return;
       }
