@@ -16,36 +16,49 @@
     if(path==='index.html' && (target===''||target==='#')){a.classList.add('active');}
   });
 
-  // Simple working contact form - sends to WhatsApp
+  // Professional email contact form using FormSubmit
   const form = document.querySelector('form.contact');
   if(form){
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
-      // Get form data
-      const formData = new FormData(form);
-      const name = formData.get('name') || '';
-      const email = formData.get('email') || '';
-      const phone = formData.get('phone') || '';
-      const service = formData.get('service') || '';
-      const message = formData.get('message') || '';
+      // Show loading state
+      const submitBtn = document.getElementById('submit-btn');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const btnLoading = submitBtn.querySelector('.btn-loading');
       
-      // Create WhatsApp message
-      const whatsappMessage = `*New Business Inquiry - Harmani Global Trade*%0A%0A` +
-        `👤 *Name:* ${encodeURIComponent(name)}%0A` +
-        `📧 *Email:* ${encodeURIComponent(email)}%0A` +
-        `📱 *Phone:* ${encodeURIComponent(phone)}%0A` +
-        `🚢 *Service:* ${encodeURIComponent(service)}%0A%0A` +
-        `💬 *Message:*%0A${encodeURIComponent(message)}%0A%0A` +
-        `Sent from: https://harmaniglobaltrade.com`;
+      submitBtn.disabled = true;
+      btnText.style.display = 'none';
+      btnLoading.style.display = 'inline';
       
-      // Send to WhatsApp
-      const whatsappUrl = `https://wa.me/917990776365?text=${whatsappMessage}`;
-      window.open(whatsappUrl, '_blank');
-      
-      // Show success message
-      showMessage('success');
-      form.reset();
+      try {
+        // Get form data
+        const formData = new FormData(form);
+        
+        // Send to FormSubmit (professional email service)
+        const response = await fetch('https://formsubmit.co/erhardikmech1012@gmail.com', {
+          method: 'POST',
+          body: formData
+        });
+        
+        if (response.ok) {
+          // Success
+          showMessage('success');
+          form.reset();
+        } else {
+          // Error
+          throw new Error('Form submission failed');
+        }
+        
+      } catch (error) {
+        console.error('Form Error:', error);
+        showMessage('error');
+      } finally {
+        // Reset button state
+        submitBtn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+      }
     });
   }
 
