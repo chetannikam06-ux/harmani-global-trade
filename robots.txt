@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://harmaniglobaltrade.com/sitemap.xml
+
+# Disallow crawling of specific directories (if any)
+# Disallow: /private/
+# Disallow: /admin/
+
+# Allow all search engines to crawl all content
+Crawl-delay: 1
+
+# Specific instructions for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
